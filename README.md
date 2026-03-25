@@ -1,29 +1,37 @@
-MerengueBot ⚪🏆
-Asistente de WhatsApp inteligente para el Real Madrid C.F., potenciado por Groq (Llama 3.3 70B). Rápido, histórico y con toda la mística del club.
+# MerengueBot ⚪🏆
 
-🚀 Inicio Rápido
-1.Instala dependencias:
+**MerengueBot** es un asistente inteligente de WhatsApp dedicado exclusivamente al **Real Madrid C.F.** Está potenciado por la infraestructura de **Groq** utilizando el modelo **Llama 3.3 70B**, lo que garantiza respuestas ultrarrápidas con toda la mística y la historia del club.
 
-Bash
-npm install
+## 🚀 Inicio Rápido
 
-2.Configura el entorno:
-Crea un .env (usa el .env.example como guía).
+Sigue estos pasos para poner a rodar el bot en tu entorno local:
 
-3.Ejecuta el bot:
+1. **Instala las dependencias:**
+   ```bash
+   npm install
+   ```
 
-Bash
-npm run dev
-Escanea el código QR que aparecerá en la terminal con tu WhatsApp.
+2. **Configura el entorno:**
+   Crea un archivo `.env` en la raíz del proyecto. Puedes usar el archivo `.env.example` como referencia para añadir tus API Keys y configuraciones.
 
-🛠️ Comandos Útiles
-npm run test:local: Prueba la IA en la terminal sin usar WhatsApp.
-npm run build: Compila el proyecto a JavaScript (dist).
-npm start: Ejecuta la versión compilada en producción.
+3. **Ejecuta el bot:**
+   ```bash
+   npm run dev
+   ```
+   *Una vez ejecutado, escanea el código **QR** que aparecerá en tu terminal desde la aplicación de WhatsApp.*
 
-🛡️ Características
-Antiban: Rate Limiting y simulación de escritura humana.
+## 🛠️ Comandos Útiles
 
-Mística: Prompt optimizado con la historia oficial (1902 - Actualidad).
+| Comando | Descripción |
+| :--- | :--- |
+| `npm run test:local` | Prueba la lógica de la IA directamente en la terminal (sin conexión a WhatsApp). |
+| `npm run build` | Compila el código a JavaScript optimizado en la carpeta `/dist`. |
+| `npm start` | Ejecuta la versión de producción ya compilada. |
 
-Cloud Ready: Incluye Health Check para despliegues en 24/7.
+## 🛡️ Características Principales
+
+* **Sistema Antiban:** Implementa *Rate Limiting* y simulación de escritura humana para proteger la cuenta.
+* **Mística Pura:** Prompt optimizado con la narrativa oficial del club, desde su fundación en **1902** hasta la actualidad.
+* **Cloud Ready:** Incluye un sistema de *Health Check* integrado, ideal para despliegues 24/7.
+
+> *"Historia que tú hiciste, historia por hacer..."* 💜
