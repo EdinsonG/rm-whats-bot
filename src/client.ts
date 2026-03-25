@@ -3,8 +3,21 @@ import qrcode from 'qrcode-terminal';
 import { handleMessage } from './handlers/message.handler';
 
 export const client = new Client({
-    authStrategy: new LocalAuth(), // Mantiene la sesión iniciada
-    puppeteer: { args: ['--no-sandbox', '--disable-setuid-sandbox'] }
+    authStrategy: new LocalAuth(),
+    puppeteer: {
+        headless: true,
+        args: [
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-accelerated-2d-canvas',
+            '--no-first-run',
+            '--no-zygote',
+            '--single-process',
+            '--disable-gpu'
+        ],
+        executablePath: process.env.PUPPETEER_EXECUTABLE_PATH || undefined,
+    }
 });
 
 client.on('qr', (qr) => {

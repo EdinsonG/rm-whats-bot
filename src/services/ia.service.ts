@@ -4,7 +4,6 @@ import { SYSTEM_PROMPT } from '../config/constants';
 
 dotenv.config();
 
-// Inicializamos el cliente de Groq
 const groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
 
 export const getIAResponse = async (userMessage: string): Promise<string> => {

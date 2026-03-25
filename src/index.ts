@@ -8,7 +8,6 @@ const startBot = async () => {
         // 1. Iniciar servidor HTTP para evitar que Render se duerma
         startHealthCheck();
         
-        // 2. Iniciar conexión de WhatsApp
         await client.initialize();
         
     } catch (error) {
