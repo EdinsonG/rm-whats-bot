@@ -1,6 +1,0 @@
-node_modules
-dist
-.wwebjs_auth
-.wwebjs_cache
-.env
-npm-debug.log

@@ -1,40 +1,27 @@
-import { handleMessage } from './handlers/message.handler';
+import { getIAResponse } from './services/ia.service';
 
-// Simulamos la estructura que espera whatsapp-web.js
-const mockMessage = (body: string) => ({
-    body,
-    from: 'user-test-123@c.us',
-    // Simulamos los métodos que el handler llama
-    getChat: async () => ({
-        sendSeen: async () => console.log('LOG: [Visto]'),
-        sendStateTyping: async () => console.log('LOG: [Escribiendo...]'),
-        clearState: async () => console.log('LOG: [Estado Limpio]'),
-    }),
-    reply: async (response: string) => {
-        console.log('\n--- RESPUESTA DEL BOT ---');
-        console.log(response);
-        console.log('-------------------------\n');
+const testQueries = [
+    "Hola ¿Como estas?",
+    "Quien eres?",
+    "Cuentame sobre el palmares del real madrid",
+    "Quienes son nuestros 3 maximos goleadores historicos?",
+    "¿Qué opinas del fichaje de Lionel Messi que dicen en los periódicos?",
+    "¿Cuales es nuestor proximo partido?"
+];
+
+async function runHistoricalTest() {
+    console.log("--- ⚪ INICIANDO TEST DE AUTORIDAD MADRIDISTA ⚪ ---\n");
+
+    for (const query of testQueries) {
+        console.log(`👤 Usuario: ${query}`);
+        try {
+            const response = await getIAResponse(query);
+            console.log(`🤖 MerengueBot: ${response}`);
+            console.log("--------------------------------------------------\n");
+        } catch (error) {
+            console.log("❌ Error en el test de campo.");
+        }
     }
-} as any);
-
-async function runTest() {
-    console.log("--- Iniciando Test Local (Sin WhatsApp) ---");
-    
-    // Test 1
-    console.log("Enviando: 'Hola ¿Quién eres?'");
-    await handleMessage(mockMessage("Hola ¿Quién eres?"));
-
-    // Test 2
-    console.log("Enviando: '¿Cuántas Champions tienes?'");
-    await handleMessage(mockMessage("¿Cuántas Champions tienes?"));
-
-    // Test 3
-    console.log("Enviando: '¿Quien es tu jugador mas importante?'");
-    await handleMessage(mockMessage("¿Quien es tu jugador mas importante?"));
-
-    // Test 4
-    console.log("Enviando: '¿Cuales son las estadisticas de goles y asistencias de Vini Jr este ano?'");
-    await handleMessage(mockMessage("¿Cuales son las estadisticas de goles y asistencias de Vini Jr este ano"));
 }
 
-runTest();
+runHistoricalTest();
