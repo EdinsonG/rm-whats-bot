@@ -18,9 +18,6 @@ export const handleMessage = async (msg: Message) => {
             await chat.sendStateTyping();
 
             const aiResponse = await getIAResponse(text);
-
-            // 2. Filtro de Verificación (FIFA/UEFA/Oficial)
-            // Detectamos palabras clave que impliquen registros estadísticos
             const statsKeywords = [
                 'récord', 'goles', 'máximo goleador', 'partidos', 
                 'asistencias', 'títulos', 'palmarés', 'fifa', 'uefa', 
